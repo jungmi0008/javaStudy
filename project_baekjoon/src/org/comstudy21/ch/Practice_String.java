@@ -80,17 +80,35 @@ public class Practice_String {
 	}
 	public static void main(String[] args) {
 		//백준 2675번 문자열 반복
+		// 이건 런타임 에러 안나옴
 		int T = scan.nextInt();
 		for (int i = 0; i < T; i++) {
 			int R = scan.nextInt();
-			String S = scan.next();
-			String[] arr1 = new String[S.length()];
-			for (int j = 1; j <= arr1.length; j++) {
-				arr1[j-1] = S.substring(j-1,j);
+			String X = scan.next();
+			char[] chr = X.toCharArray();
+			String Ret="";
+			//StringBuffer Ret = new StringBuffer();
+			for (int j = 0; j < chr.length; j++) {
+				for (int k = 0; k < R; k++) {
+					//Ret.append(Character.toString(chr[j]));
+					Ret+=Character.toString(chr[j]);
+				}
 			}
+			System.out.println(Ret);
+		}
+	}
+}
+		
+		/*
+		 * int T = scan.nextInt();
+		for (int i = 0; i < T; i++) {
+			int R = scan.nextInt();
+			String S = scan.next();
 			
+			String[] arr1 = new String[S.length()];
 			String P ="";
 			for (int l = 0; l < arr1.length; l++) {
+				arr1[l] = S.substring(l,l+1);
 				for (int k = 0; k < R; k++) {
 //					P += arr1[l];
 					P = P.concat(arr1[l]);
@@ -99,4 +117,43 @@ public class Practice_String {
 			System.out.print(P);
 		}
 	}
-}
+		 */		
+	/*
+	 * 이것도 런타임 에러
+	 * BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		int T = 0;
+		try {
+			T = Integer.parseInt(reader.readLine());
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	    StringBuilder builder = new StringBuilder();
+	    for(int i=0 ; i<T ; i++){
+            StringTokenizer tokenizer = null;
+			try {
+				tokenizer = new StringTokenizer(reader.readLine());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+            int R = Integer.parseInt(tokenizer.nextToken());
+            String str = tokenizer.nextToken();
+            
+            for(int j=0 ; j<str.length() ; j++){
+                for(int k=0 ; k<R ; k++){
+                    builder.append(str.charAt(j));
+                }
+            }
+            builder.append("\n");
+        }
+        System.out.println(builder);
+        try {
+			reader.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+	 */
+

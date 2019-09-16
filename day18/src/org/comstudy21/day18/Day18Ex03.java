@@ -6,9 +6,11 @@ class MyThread2 extends Thread {
 	public void run() {
 		int i = 0;
 		while(i<100) {
+			System.out.println("run() "+ this.getName() + " : " + i);
+			i++;
 			try {
 				Thread.sleep(100);
-				if(i== 10) {
+				if(i== 30) {
 					synchronized (this) { // 동시성 오류 방지용(비동기->동기)
 						//this.wait(1000);
 						this.wait();
@@ -17,8 +19,11 @@ class MyThread2 extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("run() => "+ this.getName() + " : " + i);
-			i++;
+		}
+	}
+	public void threadNotify() {
+		synchronized(this) {
+			notify();
 		}
 	}
 }
@@ -33,15 +38,17 @@ public class Day18Ex03 {
 		while(i<100) {
 			try {
 				Thread.sleep(100);
-				if(i == 30) {
-					synchronized (t) {
-						t.notify(); // 왜?
-					}
+				if(i == 60) {
+					//여기에서 run이 다시 시작하게 된다.
+					((MyThread2) t).threadNotify();
+//					synchronized (t) {
+//						t.notify();
+//					}
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			//System.out.println("main => " + Thread.currentThread().getName());
+			System.out.println("main " + Thread.currentThread().getName()+":"+i);
 			i++;
 		}
 	}

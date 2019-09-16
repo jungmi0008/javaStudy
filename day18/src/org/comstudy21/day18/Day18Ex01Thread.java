@@ -6,7 +6,7 @@ class MyException extends Exception{
 		super("MyEcxeption ¹ß»ý!");
 	}
 }
-public class Day18Ex01 {
+public class Day18Ex01Thread {
 	static void ExceptionManager() throws MyException{
 		throw new MyException();
 //		try {
