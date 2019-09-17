@@ -1,7 +1,13 @@
 package org.comstudy21.ch;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.StringTokenizer;
 
 public class Practice_String {
 	static Scanner scan = new Scanner (System.in);
@@ -78,7 +84,7 @@ public class Practice_String {
 			 System.out.println("오류");
 		}
 	}
-	public static void main(String[] args) {
+	public static void baekjoon2675(String[] args) {
 		//백준 2675번 문자열 반복
 		// 이건 런타임 에러 안나옴
 		int T = scan.nextInt();
@@ -97,7 +103,6 @@ public class Practice_String {
 			System.out.println(Ret);
 		}
 	}
-}
 		
 		/*
 		 * int T = scan.nextInt();
@@ -129,7 +134,7 @@ public class Practice_String {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	    StringBuilder builder = new StringBuilder();
+	    StringBuilder builder = new StringBuilder();	//append를 쓰기 위함.
 	    for(int i=0 ; i<T ; i++){
             StringTokenizer tokenizer = null;
 			try {
@@ -156,4 +161,22 @@ public class Practice_String {
 		}
     }
 	 */
+	public static void main(String[] args) {
+		String str = null;
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer strToken = null;
+		ArrayList<String> list = new ArrayList<>();
+		
+		try {
+			String upperStr = (reader.readLine()).toUpperCase();
+			for (int i = 0; i < args.length; i++) {
+				upperStr.charAt(i);
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}
 
