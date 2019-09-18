@@ -138,11 +138,12 @@ public class Practice_String {
 	    for(int i=0 ; i<T ; i++){
             StringTokenizer tokenizer = null;
 			try {
-				tokenizer = new StringTokenizer(reader.readLine());
+				tokenizer = new StringTokenizer(reader.readLine());	//라인으로 읽어들이고
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-            int R = Integer.parseInt(tokenizer.nextToken());
+			
+            int R = Integer.parseInt(tokenizer.nextToken());	//숫자부분은 integer로 받고
             String str = tokenizer.nextToken();
             
             for(int j=0 ; j<str.length() ; j++){
@@ -156,27 +157,27 @@ public class Practice_String {
         try {
 			reader.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
 	 */
 	public static void main(String[] args) {
+		//1157번 단어공부
 		String str = null;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer strToken = null;
-		ArrayList<String> list = new ArrayList<>();
-		
+		ArrayList<Character> list = new ArrayList<>();
+		int[] arr = new int[list.size()];
 		try {
 			String upperStr = (reader.readLine()).toUpperCase();
-			for (int i = 0; i < args.length; i++) {
-				upperStr.charAt(i);
+			int cnt = 0;
+			for (int i = 0; i < upperStr.length(); i++) {
+				list.add(upperStr.charAt(i));	
 			}
-			
-			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
+		System.out.println(list);
 	}
 }
 
