@@ -15,7 +15,7 @@ public class PhonebookDao {
 
 	public PhonebookDto[] selectAll() {
 		PhonebookDto[] arr = new PhonebookDto[list.size()];
-		list.toArray(arr);
+		list.toArray(arr);	//복사본을 만들어준다.
 		return arr;
 	}
 	

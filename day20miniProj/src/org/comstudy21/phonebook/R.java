@@ -22,6 +22,7 @@ public class R {
 	public static final HashMap<String, View> viewMap = new HashMap<>();
 	public static final HashMap<String, Command> cmdMap = new HashMap<>();
 	public static final HashMap<String, Object> request = new HashMap<>();
+	
 	// static 초기화 영역
 	static {
 		viewMap.put(INPUT, new Input());
@@ -35,6 +36,5 @@ public class R {
 	}
 	
 	public static final Viewer viewer = new Viewer();
-	
 	public static final PhonebookDao dao = new PhonebookDao();
 }

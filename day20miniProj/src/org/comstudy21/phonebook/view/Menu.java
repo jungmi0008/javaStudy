@@ -10,7 +10,7 @@ public class Menu implements View {
 	public void show(HashMap<String, Object> request) {
 		System.out.println("::: MENU :::");
 		for(int i=1; i<menuStr.length; i++) {
-			System.out.print(i+"." + menuStr[i]+ " ");
+			System.out.print(i+"." + menuStr[i]+ " ");	//모든 메뉴 출력(보여주기 위한)
 		}
 		System.out.println();
 		System.out.print("Choice>>> ");
@@ -23,6 +23,7 @@ public class Menu implements View {
 		// 1~3사이의 값만 no에 들어왔다
 		// menuStr배열에서 key를 가져와서 request에 저장 해 둔다.
 		request.put("menuKey", menuStr[no]);
+		//String인 menukey와 String인 INPUT(no가 1일때)을 넣는다.
 	}
 
 }

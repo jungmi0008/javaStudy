@@ -1,8 +1,6 @@
 package org.comstudy21.phonebook.command;
 
 import static org.comstudy21.phonebook.R.dao;
-import static org.comstudy21.phonebook.R.request;
-
 import java.util.HashMap;
 
 import org.comstudy21.phonebook.model.PhonebookDto;

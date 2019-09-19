@@ -16,13 +16,13 @@ public class InputCmd implements Command {
 		System.out.println("### View 실행 후 ...");
 		// --- Dao에 입력 된 데이터를 추가한다.
 		if (request.get("inputDto") != null) {
-			// reqquest의 value는 Object 타입이므로 사용 할때는 다운캐스팅 필요.
+			// request의 value는 Object 타입이므로 사용 할때는 다운캐스팅 필요.
 			PhonebookDto dto = (PhonebookDto) request.get("inputDto");
 			dao.insert(dto);
 			System.out.println("### 데이터 입력 완료!");
 		}
 
-		request.put("inputChk", null);
+		request.put("inputChk", null);	//리셋시켜주는 기능
 
 		return null;
 	}
