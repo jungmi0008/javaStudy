@@ -4,7 +4,7 @@ import java.awt.Button;
 import java.awt.FlowLayout;
 
 import org.comstudy21.day22.MyFrame2;
-
+//버튼 100개 만들기
 public class Day22Ex04 extends MyFrame2{
 	//FlowLayout에 Button
 	public static final int MAX = 100;
@@ -19,7 +19,7 @@ public class Day22Ex04 extends MyFrame2{
 		init();
 	}
 	public void init(){
-		setLayout(new FlowLayout());
+		setLayout(new FlowLayout());	//메소드 public void setLayout(LayoutManager mgr)
 		for (int i = 0; i < MAX; i++) {
 			this.add(btnArr[i]);
 		}

@@ -1,7 +1,10 @@
 package org.comstudy21.day22;
 
 import java.awt.Frame;
-
+/*
+ * Frame클래스 객체를 만들어서 쓸 수도 있고 
+ * Frame을 상속받아서 사용할 수도 있다.
+ */
 public class Day22Ex01 extends Frame{
 	
 	public Day22Ex01() {

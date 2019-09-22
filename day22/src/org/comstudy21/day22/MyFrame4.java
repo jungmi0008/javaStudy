@@ -24,6 +24,6 @@ public class MyFrame4 extends Frame{
 	}
 	
 	public static void main(String[] args) {
-		new MyFrame3().setVisible(true);
+		new MyFrame4().setVisible(true);
 	}
 }

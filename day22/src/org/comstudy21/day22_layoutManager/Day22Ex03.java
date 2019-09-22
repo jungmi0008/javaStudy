@@ -4,7 +4,7 @@ import java.awt.Button;
 import java.awt.FlowLayout;
 
 import org.comstudy21.day22.MyFrame2;
-
+//버튼만들기
 public class Day22Ex03 extends MyFrame2{
 	//FlowLayout 예제
 	//클래스 멤버필드로 선언한다.

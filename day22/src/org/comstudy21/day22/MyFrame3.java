@@ -3,7 +3,7 @@ package org.comstudy21.day22;
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
+//종료기능
 public class MyFrame3 extends Frame{
 	public MyFrame3(){
 		this("no-title", 10, 10, 600, 400);

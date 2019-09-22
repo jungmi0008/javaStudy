@@ -29,7 +29,7 @@ public class Day22Ex08 extends MyFrame2{
 		init();
 	}
 	public void init(){
-		setLayout(new BorderLayout());
+		setLayout(new BorderLayout());	//BorderLayout은 동서남북으로 버튼을 위치시킨다.
 		add(northPan,"Center");
 		northPan.add(lable);
 		
