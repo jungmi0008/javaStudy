@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    p{
+        margin: 0px;
+        padding: 0px;
+    }
+    th, p.mid{
+        text-align: center;
+    }
+    #changeLine{
+        color: red;
+    }
+    table,td,th,tr{
+        border: 1px solid gray;
+        border-collapse: collapse;
+    }
+    td{
+        padding: 10px 10px;
+    }
+    h2, h1{
+        text-align: center;
+    }
+    table{
+        margin-left: 70px;
+    }
+    #button{
+        height: 50px;
+        width: 100px;
+        margin: 10px;
+    }
+</style>
+<script>
+	function validateForm(){
+		var fcourse = document.forms["appForm"]["course"].value;
+		if(fcourse == ""){
+			alert("과정을 선택 하세요!");
+			return false;
+		}
+		var fname = document.forms["appForm"]["name"].value;
+		if(fname == ""){
+			alert("성명을 입력 하세요!");
+			return false;
+		}
+		var fidNumber1 = document.forms["appForm"]["idNumber1"].value;
+		var fidNumber2 = document.forms["appForm"]["idNumber2"].value;
+		if(fidNumber1 == ""||fidNumber2 == ""){
+			alert("주민등록번호를 입력 하세요!");
+			return false;
+		}
+		var faddress = document.forms["appForm"]["address"].value;
+		if(faddress == ""){
+			alert("주소를 입력 하세요!");
+			return false;
+		}
+		var fmobile = document.forms["appForm"]["mobile"].value;
+		if(fmobile == ""){
+			alert("휴대폰번호를 입력 하세요!");
+			return false;
+		}
+		var fagree = document.forms["appForm"]["agree"].value;
+		if(fagree == ""){
+			alert("동의 여부를 체크 하세요!");
+			return false;
+		}
+	}
+ 
+</script>
+</head>
+<body>
+<h2>㈜ kbs 비즈니스</h2>
+<h1>일반 경비원 신임교육과정 입교신청서</h1>
+<form name="appForm" action="complete.do" method="post" onsubmit="return validateForm()">
+<table>
+	<tr>
+		<th>신청과정</th>
+		<td>
+		<select name="course" >
+			<option>교육과정을 선택하세요.</option>
+			<option value="일반경비원 신임교육">일반경비원 신임교육</option>
+			<option value="NCS적용 경비원 직무교육(일반)2">NCS적용 경비원 직무교육(일반)2</option>
+			<option value="경비원 교육 주말반">경비원 교육 주말반</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<th>*성명</th>
+		<td><input type="text" id="getName" name="name" placeholder="필수입력사항" onchange="changeFn()"></td>
+	</tr>
+	<tr>
+		<th>*주민등록번호</th>
+		<td><input type="text" name="idNumber1"> - <input type="text" name="idNumber2" size="6">******</td>
+	</tr>
+	<tr>
+		<th>*주소</th>
+		<td><input type="text" name="address" placeholder="필수입력사항"></td>
+	</tr>
+	<tr>
+		<th>전화번호</th>
+		<td><input type="text" name="phone"></td>
+	</tr>
+	<tr>
+		<th>*휴대전화</th>
+		<td><input type="text" name="mobile" placeholder="필수입력사항"></td>
+	</tr>
+	<tr>
+		<th>수강료납부</th>
+		<td><input type="radio" value="현금" name="payment">현금
+		<input type="radio" value="카드" name="payment" disabled>카드
+		<input type="radio" value="계좌이체" name="payment" checked>계좌이체</td>
+	</tr>
+	<tr>
+		<th>교육날짜</th>
+		<td>
+		    <input type="date" name="startDay"> 부터 <input type="date" name="endDay">까지
+		</td>
+	</tr>
+	<tr>
+		<th>개인정보 수집 및 이용 동의</th>
+		<td>
+		 <iframe width="100%" src="constraint.html"></iframe>
+		 <input type="checkbox" name="agree">동의함
+		</td>
+	</tr>
+	<tr>
+    <td colspan="2">
+        <p class="mid">상기 본인은 귀 교육기관에서 실시하는</p><br>
+        <p class="mid">일반경비원 신임교육과정을 이수하고자 입교를 신청합니다.</p><br>
+        <p class="mid">2019 년 9월 29일</p><br>
+        <p class="mid">신청인 성명 :<span id="inputName"></span>(<span id="changeLine">입력폼 성명 란에 성명 입력!</span>)</p><br>
+        <p class="mid">㈜ KBS 비즈니스 대표이사 귀하</p><br>
+        <br>
+        <p>1. 타인의 명의로 수강신청은 불가능합니다.</p><br>
+        <p>2. 지각 및 결석 등으로 인한 출석시간 미달 시 보충수업을 통해 이수증을 발급받으실 수 있습니다.</p><br>
+        <p>3. 개인적인 사정으로 인해 개강일 이후 수강 취소 시 당사관련규정[KBS비즈니스]에 따라 처리 됩니다.</p><br>
+        <p>4. ㈜KBS비즈니스의 운영규정을 준수할 것입니다.</p><br>
+    </td>
+    <script>
+     function changeFn(){
+    	 var x = document.getElementById("getName").value;
+    	 document.getElementById("inputName").innerHTML = x;
+    	 document.getElementById("changeLine").innerHTML = "온라인 신청서 본인 제출";
+     }
+    </script>
+	</tr>
+	<tr>
+	    <th>붙임</th>
+	    <td>
+            <p>· 교육비 : 120,000원</p><br>
+            <p>- 입금계좌 (신한은행) 140 - 011 - 456995</p><br>
+            <p>- 예금주 : KBS비즈니스</p><br>
+            <p>· 준비사항 : 사진(3*4) 1매, 필기도구, 신분증</p><br>
+            <p>· 교육문의 : 02-2600-8815~6</p><br>
+	    </td>
+	</tr>
+	<th colspan="2">
+	<input type="submit" value="가입신청" id="button">
+	</th>
+	
+</table>
+</form>
+</body>
+</html>
