@@ -35,51 +35,59 @@
 </style>
 <script>
 	function validateForm(){
+		event.preventDefault();
 		var fcourse = document.forms["appForm"]["course"].value;
 		if(fcourse == ""){
 			alert("과정을 선택 하세요!");
-			return false;
+			fcourse.focus();
+			return false;	//false를 해주면서 submit이 되지 못하게 한다.
 		}
 		var fname = document.forms["appForm"]["name"].value;
 		if(fname == ""){
 			alert("성명을 입력 하세요!");
+			fname.focus();
 			return false;
 		}
 		var fidNumber1 = document.forms["appForm"]["idNumber1"].value;
 		var fidNumber2 = document.forms["appForm"]["idNumber2"].value;
 		if(fidNumber1 == ""||fidNumber2 == ""){
 			alert("주민등록번호를 입력 하세요!");
+			fidNumber1.focus();
 			return false;
 		}
 		var faddress = document.forms["appForm"]["address"].value;
 		if(faddress == ""){
 			alert("주소를 입력 하세요!");
+			faddress.focus();
 			return false;
 		}
 		var fmobile = document.forms["appForm"]["mobile"].value;
 		if(fmobile == ""){
 			alert("휴대폰번호를 입력 하세요!");
+			fmobile.focus();
 			return false;
 		}
 		var fagree = document.forms["appForm"]["agree"].value;
 		if(fagree == ""){
 			alert("동의 여부를 체크 하세요!");
+			fagree.focus();
 			return false;
 		}
+		document.forms["appForm"].submit();
 	}
- 
+		//return false하면 따로 submit할 필요가 없게 한다.
 </script>
 </head>
 <body>
 <h2>㈜ kbs 비즈니스</h2>
 <h1>일반 경비원 신임교육과정 입교신청서</h1>
-<form name="appForm" action="complete.do" method="post" onsubmit="return validateForm()">
+<form name="appForm" action="complete.do" onsubmit="return validateForm()" method="post">
 <table>
 	<tr>
 		<th>신청과정</th>
 		<td>
 		<select name="course" >
-			<option>교육과정을 선택하세요.</option>
+			<option value="">교육과정을 선택하세요.</option>
 			<option value="일반경비원 신임교육">일반경비원 신임교육</option>
 			<option value="NCS적용 경비원 직무교육(일반)2">NCS적용 경비원 직무교육(일반)2</option>
 			<option value="경비원 교육 주말반">경비원 교육 주말반</option>
@@ -129,7 +137,7 @@
     <td colspan="2">
         <p class="mid">상기 본인은 귀 교육기관에서 실시하는</p><br>
         <p class="mid">일반경비원 신임교육과정을 이수하고자 입교를 신청합니다.</p><br>
-        <p class="mid">2019 년 9월 29일</p><br>
+        <p class="mid"><span id="date"></span></p><br>
         <p class="mid">신청인 성명 :<span id="inputName"></span>(<span id="changeLine">입력폼 성명 란에 성명 입력!</span>)</p><br>
         <p class="mid">㈜ KBS 비즈니스 대표이사 귀하</p><br>
         <br>
@@ -159,8 +167,15 @@
 	<th colspan="2">
 	<input type="submit" value="가입신청" id="button">
 	</th>
-	
 </table>
 </form>
+<script>
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1;
+	var yyyy = today.getFullYear();
+	var date = yyyy+"년  "+mm+"월  "+dd+"일  ";
+	document.getElementById("date").innerHTML= date ;
+</script>
 </body>
 </html>
