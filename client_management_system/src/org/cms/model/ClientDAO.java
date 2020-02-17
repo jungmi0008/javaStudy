@@ -16,11 +16,11 @@ public class ClientDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	private final String SELECT_ALL = "select * from client order by id asc";
-	private final String INSERT = "insert into client(id, name, gender, phone, address) values (?,?,?,?,?)";
-	private final String SELECT = "select * from client where id=?";
-	private final String UPDATE = "update client set name=?, gender=?, phone=?, address=? where id=?";
-	private final String DELETE = "delete from client where id=?";
+	private final String SELECT_ALL = "select * from cmsdb order by id asc";
+	private final String INSERT = "insert into cmsdb(id, name, gender, phone, address) values (?,?,?,?,?)";
+	private final String SELECT = "select * from cmsdb where id=?";
+	private final String UPDATE = "update cmsdb set name=?, gender=?, phone=?, address=? where id=?";
+	private final String DELETE = "delete from cmsdb where id=?";
 	
 	public static final Scanner scan = new Scanner(System.in);
 	public ClientDAO() {}
@@ -37,8 +37,8 @@ public class ClientDAO {
 		Vector<ClientDTO> dtoVector = new Vector<>();
 		try {
 			Connection conn = JDBC.getConnection();
-			stmt = conn.createStatement();		//createStatement는 SQL문을 DB로 보내기 위해 Statement를 만든다.
-			rs = stmt.executeQuery(SELECT_ALL);	//주어진 질의어를 처리하고 rs를 리턴한다.
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(SELECT_ALL);
 			while(rs.next()) {
 				String id = rs.getString("id");
 				String name = rs.getString("name");
@@ -57,8 +57,8 @@ public class ClientDAO {
 		Vector<Vector> dtoVector = new Vector<>();
 		try {
 			Connection conn = JDBC.getConnection();
-			stmt = conn.createStatement();		//createStatement는 SQL문을 DB로 보내기 위해 Statement를 만든다.
-			rs = stmt.executeQuery(SELECT_ALL);	//주어진 질의어를 처리하고 rs를 리턴한다.
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(SELECT_ALL);
 			while(rs.next()) {
 				String id = rs.getString("id");
 				String name = rs.getString("name");
@@ -74,7 +74,6 @@ public class ClientDAO {
 				list.add(address);
 				
 				dtoVector.add(list);
-//				System.out.println(list);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,13 +89,13 @@ public class ClientDAO {
 			pstmt.setString(4, dto.getPhone());
 			pstmt.setString(5, dto.getAddress());
 			
-			int cnt = pstmt.executeUpdate(); //튜플이 몇개인지 숫자가 출력된다.
-//			System.out.println(cnt);	//3 출력
-			if(cnt>0){
-				conn.commit();
-			}else{
-				conn.rollback();
-			}
+			int cnt = pstmt.executeUpdate();
+
+//			if(cnt>0){
+//				conn.commit();
+//			}else{
+//				conn.rollback();
+//			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			try {
@@ -134,7 +133,6 @@ public class ClientDAO {
 			v.add(list);
 			
 			System.out.println(list);
-			System.out.println("검색이 완료되었습니다.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -152,17 +150,15 @@ public class ClientDAO {
 			pstmt.setString(1,dto.getName());
 			pstmt.setString(2,dto.getGender());
 			pstmt.setString(3,dto.getPhone());
-			pstmt.setString(4,dto.getAddress());
-			System.out.println("수정이 완료되었습니다.");
-			
+			pstmt.setString(4,dto.getAddress());			
 			
 			int cnt = pstmt.executeUpdate();
 			
-			if(cnt>0){
-				conn.commit();
-			}else{
-				conn.rollback();
-			}
+//			if(cnt>0){
+//				conn.commit();
+//			}else{
+//				conn.rollback();
+//			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -176,11 +172,12 @@ public class ClientDAO {
 			pstmt = conn.prepareStatement(DELETE);
 			pstmt.setString(1,dto.getId());
 			int cnt = pstmt.executeUpdate();
-			if(cnt>0){
-				conn.commit();
-			}else{
-				conn.rollback();
-			}
+			
+//			if(cnt>0){
+//				conn.commit();
+//			}else{
+//				conn.rollback();
+//			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{

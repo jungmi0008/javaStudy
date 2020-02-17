@@ -88,7 +88,7 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 		contentPane = (JPanel)getContentPane();
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(800,800);
-		setTitle("°í°´ °ü¸® ½Ã½ºÅÛ");
+		setTitle("ê³ ê° ê´€ë¦¬ ì‹œìŠ¤í…œ");
 		
 		
 		init();
@@ -102,30 +102,30 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 	}   
 
 	private void init() {		
-		//¾ÆÀÌµğ
+		//ì•„ì´ë”” ì…ë ¥ì¹¸
 		firstPane = new JPanel();
 		firstPane.setBackground(Color.WHITE);
-		idLabel = new JLabel("ID : ");
+		idLabel = new JLabel("ì•„ì´ë”” : ");
 		firstPane.add(idLabel);
 		idText = new JTextField(10);
 		firstPane.add(idText);
         
-        //ÀÌ¸§
-		nameLabel = new JLabel("ÀÌ¸§ : ");
+        //ì´ë¦„ì…ë ¥ì¹¸
+		nameLabel = new JLabel("ì´ë¦„ : ");
 		firstPane.add(nameLabel);
 		nameText = new JTextField(10);
 		firstPane.add(nameText);
 		
-		//¼ºº°
 		thirdPane = new JPanel();
 		thirdPane.setBackground(Color.WHITE);
 		thirdPane.setOpaque(true);
 		checkbox = new ButtonGroup();		
 		
-		genderLabel = new JLabel("¼ºº° : ");
-		ch02 = new JRadioButton("¿©", true);
+		//ì„±ë³„ ë¼ë””ì˜¤ë²„íŠ¼
+		genderLabel = new JLabel("ì„±ë³„ : ");
+		ch02 = new JRadioButton("ì—¬ì„±", true);
 		ch02.setBackground(Color.WHITE);
-		ch01 = new JRadioButton("³²", false);
+		ch01 = new JRadioButton("ë‚¨ì„±", false);
 		ch01.setBackground(Color.WHITE);
 		checkbox.add(ch01);
 		checkbox.add(ch02);
@@ -134,8 +134,8 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
         
 		
 		
-		//ÀüÈ­¹øÈ£		
-		phoneLabel = new JLabel("ÀüÈ­¹øÈ£ : ");
+		//ì „í™”ë²ˆí˜¸ ì…ë ¥ì¹¸	
+		phoneLabel = new JLabel("ì „í™”ë²ˆí˜¸ : ");
 		thirdPane.add(phoneLabel);
 		telText1 = new JTextField(5);
 		telText2 = new JTextField(5);
@@ -144,14 +144,16 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 		thirdPane.add(telText2);
 		thirdPane.add(telText3);
 		
-		//ÁÖ¼Ò
+		//ì£¼ì†Œì…ë ¥ì¹¸
 		secondPane = new JPanel();
 		secondPane.setBackground(Color.WHITE);
-		addrLabel = new JLabel("ÁÖ¼Ò : ");
+		addrLabel = new JLabel("ì£¼ì†Œ: ");
 		secondPane.add(addrLabel);
 		String[] location = new String[]{
-				"¼­¿ïÆ¯º°½Ã", "ºÎ»ê±¤¿ª½Ã", "´ë±¸±¤¿ª½Ã", "ÀÎÃµ±¤¿ª½Ã", "±¤ÁÖ±¤¿ª½Ã", "´ëÀü±¤¿ª½Ã", 
-				"¿ï»ê±¤¿ª½Ã", "¼¼Á¾Æ¯º°ÀÚÄ¡½Ã", "°æ±âµµ", "°­¿øµµ", "ÃæÃ»µµ", "Àü¶óµµ", "°æ»óµµ", "Á¦ÁÖµµ"
+				"ì„œìš¸íŠ¹ë³„ì‹œ","ë¶€ì‚°ê´‘ì—­ì‹œ","ëŒ€êµ¬ê´‘ì—­ì‹œ","ì¸ì²œê´‘ì—­ì‹œ",
+				"ê´‘ì£¼ê´‘ì—­ì‹œ","ëŒ€ì „ê´‘ì—­ì‹œ","ìš¸ì‚°ê´‘ì—­ì‹œ","ì„¸ì¢…íŠ¹ë³„ìì¹˜ì‹œ",
+				"ê²½ê¸°ë„","ê°•ì›ë„","ì¶©ì²­ë¶ë„","ì¶©ì²­ë‚¨ë„","ì „ë¼ë¶ë„",
+				"ì „ë¼ë‚¨ë„","ê²½ìƒë¶ë„","ê²½ìƒë‚¨ë„","ì œì£¼íŠ¹ë³„ìì¹˜ë„"
 			};
 		combo =new JComboBox<>(location);
 		addrText1 = new JTextField(10);
@@ -168,10 +170,10 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 		zeroPane.add(thirdPane);
 		zeroPane.add(secondPane);
 		
-		//±×¸²
+		//í™”ë©´ ë¡œê³ 
 		try {
 			
-			img = new File("C:\\Users\\stu\\Downloads\\clients.png");
+			img = new File("images/cms_logo.png");
 			bufferedImage = ImageIO.read(img);
 			imageIcon = new ImageIcon(bufferedImage);
 			oldImage = imageIcon.getImage();
@@ -190,21 +192,21 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 		mainPane.add(zeroPane,"Center");
 		mainPane.add(photoPane,"East");
 		
-		//Å×ÀÌºí
+		//ë¦¬ìŠ¤íŠ¸ ë³´ê¸°
 		v= dao.selectAll(null);
 		cols= getColumn();
 		model= new DefaultTableModel(v, cols);
         jTable = new JTable(model);
         scrPane = new JScrollPane(jTable);
 
-        //¹öÆ°
+        //ë²„íŠ¼
         buttonPanel = new JPanel(new FlowLayout());
         buttonPanel.setBackground(Color.WHITE);
-        btnOuput = new JButton("»õ·Î°íÄ§");
-        btnInput = new JButton("Ãß°¡");
-        btnDelete = new JButton("»èÁ¦");
-        btnSearch = new JButton("°Ë»ö");
-        btnUpdate = new JButton("¼öÁ¤");
+        btnOuput = new JButton("ìƒˆë¡œê³ ì¹¨");
+        btnInput = new JButton("ì¶”ê°€");
+        btnDelete = new JButton("ê²€ìƒ‰");
+        btnSearch = new JButton("ìˆ˜ì •");
+        btnUpdate = new JButton("ì‚­ì œ");
         buttonPanel.add(btnOuput);
         buttonPanel.add(btnInput);
         buttonPanel.add(btnDelete);
@@ -215,7 +217,7 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 	}
 
 	private void start() {
-		jTable.addMouseListener(this); //¸®½º³Ê µî·Ï
+		jTable.addMouseListener(this);
         btnOuput.addActionListener(this);
         btnInput.addActionListener(this);
         btnDelete.addActionListener(this);
@@ -237,12 +239,11 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
         String addr = addr1+" "+addr2+" "+addr3;
         String gender = "";
         if(ch01.isSelected()){
-            gender = "³²";
+            gender = "ì—¬ì„±";
         }else if(ch02.isSelected()){
-            gender = "¿©";
+            gender = "ë‚¨ì„±";
         }
 
-        //dto¿¡ ´ã´Â´Ù.
         dto.setId(id);
         dto.setName(name);
         dto.setPhone(tel);
@@ -254,11 +255,11 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 
 	private Vector getColumn() {
 		Vector<String> columnNames = new Vector<>();
-		columnNames.add("¾ÆÀÌµğ");
-		columnNames.add("ÀÌ¸§");
-		columnNames.add("¼ºº°");
-		columnNames.add("ÀüÈ­¹øÈ£");
-		columnNames.add("ÁÖ¼Ò");
+		columnNames.add("ì•„ì´ë””");
+		columnNames.add("ì´ë¦„");
+		columnNames.add("ì„±ë³„");
+		columnNames.add("ì „í™”ë²ˆí˜¸");
+		columnNames.add("ì£¼ì†Œ");
 		
 		return columnNames;
 	}
@@ -290,7 +291,7 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 	        telText2.setText("");
 	        telText3.setText("");
 	        
-	        combo.setSelectedItem("¼­¿ïÆ¯º°½Ã");
+	        combo.setSelectedItem("ï¿½ï¿½ï¿½ï¿½Æ¯ï¿½ï¿½ï¿½ï¿½");
 	        addrText1.setText("");
 	        addrText2.setText("");
 		
@@ -329,7 +330,7 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 	public void changeTableData() {
 		Vector<Vector> data = dao.selectAll(null);
 		model.setDataVector(data, cols);
-		model.fireTableDataChanged(); // °»½Å
+		model.fireTableDataChanged();
 	}
 	
 	@Override
@@ -339,7 +340,6 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		int r = jTable.getSelectedRow();
         String id = (String) jTable.getValueAt(r, 0);              
         String name = (String) jTable.getValueAt(r, 1);              
@@ -351,7 +351,7 @@ public class CMSLayout extends JFrame implements MouseListener,ActionListener{
         
         nameText.setText(name);
         
-        if(gender.equals("³²")){
+        if(gender.equals("ì—¬ì„±")){
             ch01.setSelected(true);
         }else{
         	ch02.setSelected(true);
